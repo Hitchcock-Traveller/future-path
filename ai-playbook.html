@@ -31,8 +31,10 @@ ul,ol{list-style:none}
 .bg-layer{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;will-change:transform}
 .bg-image{
   position:fixed;top:0;left:0;width:100%;height:100%;
-  background-image:url('https://s.coze.cn/image/QUCMMNk5C18/');
-  background-size:cover;background-position:center;background-attachment:fixed;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(41,120,181,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(212,168,83,0.1) 0%, transparent 50%),
+    linear-gradient(180deg, #0B1220 0%, #0F172A 50%, #0B1220 100%);
   z-index:-2;
   will-change:transform;
 }
@@ -584,12 +586,15 @@ ul,ol{list-style:none}
   position:relative;aspect-ratio:4/3;
   border-radius:var(--radius-lg);overflow:hidden;
   border:1px solid var(--card-border);
+  display:flex;align-items:center;justify-content:center;
 }
-.why-county-visual img{
-  width:100%;height:100%;object-fit:cover;
+.why-county-visual .county-visual-card{
+  width:100%;height:100%;
   transition:transform 1.5s var(--ease);
 }
-.why-county-visual.visible img{transform:scale(1.05)}
+.why-county-visual.visible .county-visual-card{transform:scale(1.02)}
+.why-county-visual svg{width:100%;height:100%;}
+.county-visual-caption{display:none;}
 .why-county-visual::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 40%,var(--bg) 100%);
@@ -681,6 +686,13 @@ ul,ol{list-style:none}
 .chart-bar-label{
   position:absolute;bottom:-28px;
   font-size:12px;color:var(--ink-4);
+}
+.chart-note{
+  text-align:center;
+  font-size:12px;
+  color:var(--ink-4);
+  margin-top:48px;
+  opacity:0.7;
 }
 
 /* 痛点 */
@@ -1247,7 +1259,58 @@ ul,ol{list-style:none}
         <p><strong>洞口县</strong>是我们的起点——一座湘西南小城，有充足的文化遗产资源和县域治理需求，是完美的原型验证场。</p>
       </div>
       <div class="why-county-visual reveal-right">
-        <img src="https://s.coze.cn/image/OM2R7VrhIMQ/" alt="无人机航拍古寺三维重建">
+        <div class="county-visual-card">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="vg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1E3A5F" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#0B1220" stop-opacity="0.9"/>
+              </linearGradient>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#D4A853"/>
+                <stop offset="100%" stop-color="#E8C87A"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#vg)"/>
+            <!-- 点云效果：古建筑轮廓 -->
+            <g fill="#D4A853" opacity="0.6">
+              <circle cx="120" cy="200" r="2"/><circle cx="140" cy="180" r="1.5"/>
+              <circle cx="160" cy="160" r="2"/><circle cx="180" cy="140" r="1.5"/>
+              <circle cx="200" cy="120" r="2"/><circle cx="220" cy="140" r="1.5"/>
+              <circle cx="240" cy="160" r="2"/><circle cx="260" cy="180" r="1.5"/>
+              <circle cx="280" cy="200" r="2"/><circle cx="150" cy="220" r="1.5"/>
+              <circle cx="180" cy="230" r="2"/><circle cx="210" cy="240" r="1.5"/>
+              <circle cx="240" cy="230" r="2"/><circle cx="270" cy="220" r="1.5"/>
+              <circle cx="200" cy="80" r="2"/><circle cx="190" cy="90" r="1.5"/>
+              <circle cx="210" cy="90" r="1.5"/><circle cx="180" cy="100" r="1"/>
+              <circle cx="220" cy="100" r="1"/><circle cx="170" cy="110" r="1"/>
+              <circle cx="230" cy="110" r="1"/><circle cx="160" cy="120" r="1"/>
+              <circle cx="240" cy="120" r="1"/><circle cx="150" cy="130" r="1"/>
+              <circle cx="250" cy="130" r="1"/><circle cx="140" cy="140" r="1"/>
+              <circle cx="260" cy="140" r="1"/>
+            </g>
+            <!-- 连接线 -->
+            <g stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.4" fill="none">
+              <line x1="200" y1="80" x2="120" y2="200"/>
+              <line x1="200" y1="80" x2="280" y2="200"/>
+              <line x1="120" y1="200" x2="280" y2="200"/>
+              <line x1="150" y1="220" x2="270" y2="220"/>
+              <line x1="180" y1="140" x2="200" y2="80"/>
+              <line x1="220" y1="140" x2="200" y2="80"/>
+            </g>
+            <!-- 无人机 -->
+            <g transform="translate(300,60)">
+              <ellipse cx="0" cy="0" rx="20" ry="6" fill="#2978B5" opacity="0.8"/>
+              <circle cx="-18" cy="-8" r="6" fill="#1E3A5F" stroke="#D4A853" stroke-width="1"/>
+              <circle cx="18" cy="-8" r="6" fill="#1E3A5F" stroke="#D4A853" stroke-width="1"/>
+              <circle cx="-18" cy="-8" r="3" fill="#D4A853" opacity="0.8"/>
+              <circle cx="18" cy="-8" r="3" fill="#D4A853" opacity="0.8"/>
+            </g>
+            <!-- 扫描线 -->
+            <line x1="300" y1="66" x2="200" y2="200" stroke="#D4A853" stroke-width="1" stroke-dasharray="4,4" opacity="0.6"/>
+          </svg>
+          <div class="county-visual-caption">无人机航测 + 三维重建 · 县域数字孪生</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1264,27 +1327,27 @@ ul,ol{list-style:none}
 
     <!-- 核心数据卡 -->
     <div class="market-hero reveal" id="marketHero">
-      <div class="market-hero-bg" style="background-image:url('https://s.coze.cn/image/0nRbdkSKfSw/')"></div>
+      <div class="market-hero-bg" style="background:linear-gradient(135deg,rgba(15,23,42,.85),rgba(30,58,95,.9)),radial-gradient(circle at 30% 50%,rgba(212,168,83,.15),transparent 50%),radial-gradient(circle at 70% 80%,rgba(41,120,181,.2),transparent 50%)"></div>
       <div class="market-stats">
         <div class="market-stat">
-          <div class="ms-num"><span class="counter" data-target="153.4" data-decimal="1">0</span><span style="font-size:18px">亿</span></div>
-          <div class="ms-unit">2026年</div>
-          <div class="ms-label">实景三维市场规模</div>
+          <div class="ms-num"><span class="counter" data-target="20000" data-decimal="0">0</span><span style="font-size:18px">亿</span></div>
+          <div class="ms-unit">2030年</div>
+          <div class="ms-label">低空经济总规模</div>
         </div>
         <div class="market-stat">
           <div class="ms-num"><span class="counter" data-target="1.5" data-decimal="1">0</span><span style="font-size:18px">万亿</span></div>
-          <div class="ms-unit">2026年</div>
-          <div class="ms-label">低空经济总规模</div>
+          <div class="ms-unit">2025年</div>
+          <div class="ms-label">低空经济规模预测</div>
         </div>
         <div class="market-stat">
           <div class="ms-num"><span class="counter" data-target="41.2" data-decimal="1">0</span><span style="font-size:18px">%</span></div>
           <div class="ms-unit">县级市</div>
-          <div class="ms-label">数字城市渗透率</div>
+          <div class="ms-label">数字孪生城市渗透率</div>
         </div>
         <div class="market-stat">
-          <div class="ms-num"><span class="counter" data-target="25">0</span><span style="font-size:18px">%</span></div>
+          <div class="ms-num"><span class="counter" data-target="28" data-decimal="0">0</span><span style="font-size:18px">%</span></div>
           <div class="ms-unit">年复合增长</div>
-          <div class="ms-label">SaaS化服务增速</div>
+          <div class="ms-label">实景三维市场增速</div>
         </div>
       </div>
     </div>
@@ -1293,44 +1356,37 @@ ul,ol{list-style:none}
     <div class="growth-chart reveal">
       <div class="chart-header">
         <div>
-          <h3>中国实景三维市场规模</h3>
-          <div class="chart-sub">2020 - 2026E · 单位：亿元人民币</div>
+          <h3>中国低空经济市场规模</h3>
+          <div class="chart-sub">2023 - 2030E · 单位：亿元人民币</div>
         </div>
         <div style="text-align:right">
-          <div style="font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent-2),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CAGR 28.6%</div>
-          <div style="font-size:12px;color:var(--ink-4)">2020-2026 复合增长率</div>
+          <div style="font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent-2),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">CAGR 20%+</div>
+          <div style="font-size:12px;color:var(--ink-4)">2023-2030 复合增长率</div>
         </div>
       </div>
       <div class="chart-bars" id="chartBars">
-        <div class="chart-bar" style="--h:18%">
-          <div class="chart-bar-fill" data-value="42.8亿"></div>
-          <div class="chart-bar-label">2020</div>
-        </div>
-        <div class="chart-bar" style="--h:28%">
-          <div class="chart-bar-fill" data-value="62.5亿"></div>
-          <div class="chart-bar-label">2021</div>
-        </div>
-        <div class="chart-bar" style="--h:38%">
-          <div class="chart-bar-fill" data-value="83.0亿"></div>
-          <div class="chart-bar-label">2022</div>
-        </div>
-        <div class="chart-bar" style="--h:50%">
-          <div class="chart-bar-fill" data-value="106.5亿"></div>
+        <div class="chart-bar" style="--h:25%">
+          <div class="chart-bar-fill" data-value="5058亿"></div>
           <div class="chart-bar-label">2023</div>
         </div>
-        <div class="chart-bar" style="--h:62%">
-          <div class="chart-bar-fill" data-value="124.3亿"></div>
+        <div class="chart-bar" style="--h:40%">
+          <div class="chart-bar-fill" data-value="8500亿"></div>
           <div class="chart-bar-label">2024</div>
         </div>
-        <div class="chart-bar" style="--h:75%">
-          <div class="chart-bar-fill" data-value="139.0亿"></div>
+        <div class="chart-bar" style="--h:60%">
+          <div class="chart-bar-fill" data-value="12000亿"></div>
           <div class="chart-bar-label">2025E</div>
         </div>
-        <div class="chart-bar" style="--h:90%">
-          <div class="chart-bar-fill" data-value="153.4亿"></div>
+        <div class="chart-bar" style="--h:75%">
+          <div class="chart-bar-fill" data-value="15000亿"></div>
           <div class="chart-bar-label">2026E</div>
         </div>
+        <div class="chart-bar" style="--h:100%">
+          <div class="chart-bar-fill" data-value="20000亿"></div>
+          <div class="chart-bar-label">2030E</div>
+        </div>
       </div>
+      <div class="chart-note">数据来源：中国民航局、国家发改委低空经济发展指导意见、赛迪顾问整理</div>
     </div>
 
     <!-- 痛点分析 -->
@@ -1485,7 +1541,7 @@ ul,ol{list-style:none}
       </div>
       <div class="source-item">
         <div class="source-name">沙利文咨询</div>
-        <a href="https://www.frost.com/" target="_blank" rel="noopener noreferrer">无人机行业市场报告</a>
+        <a href="https://www.frost.com.cn/" target="_blank" rel="noopener noreferrer">无人机行业市场报告</a>
       </div>
       <div class="source-item">
         <div class="source-name">中国信息通信研究院</div>
