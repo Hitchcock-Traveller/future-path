@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hitchcock-traveller.github.io/future-path/sitemap.xml

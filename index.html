@@ -6,6 +6,7 @@
 <meta name="description" content="低空智联——专注县域蓝海市场的低空数字孪生服务商，以无人机实景三维建模为核心，结合AI智能建模工具，打造轻资产、本地化、技术驱动的低空数据服务体系。">
 <meta name="keywords" content="低空经济,实景三维,数字孪生,无人机航测,创业计划,县域经济,3DGS">
 <meta name="author" content="低空智联团队">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>低空智联 · 低空经济赛道创业规划</title>
 <style>
 /* ============ 设计系统 ============ */
@@ -1383,24 +1384,24 @@ body {
     </div>
     <div class="hero-kpi">
       <div class="kpi-card">
-        <div class="kpi-number"><span data-count="20000">0</span><span class="unit">亿+</span></div>
+        <div class="kpi-number"><span data-count="2.0" data-decimal="1">0</span><span class="unit">万亿</span></div>
         <div class="kpi-label">2030年低空经济规模</div>
         <div class="kpi-desc">国家战略级新兴产业</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-number"><span data-count="9.7">0</span><span class="unit">%</span></div>
-        <div class="kpi-label">县域实景三维覆盖率</div>
-        <div class="kpi-desc">全国约2800县仅272县完成</div>
+        <div class="kpi-number"><span data-count="41.2" data-decimal="1">0</span><span class="unit">%</span></div>
+        <div class="kpi-label">数字孪生城市渗透率</div>
+        <div class="kpi-desc">县级市 · IDC 中国</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-number"><span data-count="9.7" data-decimal="1">0</span><span class="unit">%</span></div>
+        <div class="kpi-label">实景三维县域覆盖率</div>
+        <div class="kpi-desc">2800县仅约272县完成</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-number"><span data-count="30">0</span><span class="unit">-40%</span></div>
         <div class="kpi-label">综合成本优势</div>
         <div class="kpi-desc">对比传统测绘作业模式</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-number"><span data-count="5">0</span><span class="unit">人</span></div>
-        <div class="kpi-label">核心团队</div>
-        <div class="kpi-desc">遥感专业全链条覆盖</div>
       </div>
     </div>
   </div>
@@ -2210,7 +2211,8 @@ const observer = new IntersectionObserver((entries) => {
       if (entry.target.classList.contains('hero')) {
         heroKpis.forEach((el, i) => {
           const target = parseFloat(el.getAttribute('data-count'));
-          const decimals = target % 1 !== 0 ? 1 : 0;
+          const decAttr = el.getAttribute('data-decimal');
+          const decimals = decAttr !== null ? parseInt(decAttr) : (target % 1 !== 0 ? 1 : 0);
           setTimeout(() => animateCount(el, target, 2000, decimals), 200 + i * 150);
         });
       }
