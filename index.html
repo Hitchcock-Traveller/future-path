@@ -123,6 +123,15 @@ body {
   position: relative;
   overflow: hidden;
 }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/hero-bg.webp') center/cover no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
 .hero-bg-circle {
   position: absolute;
   border-radius: 50%;
