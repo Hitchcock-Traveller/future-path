@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低空智联 · 商业画布</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #f0f2f5;
+    padding: 30px 20px;
+    color: #1a1a2e;
+  }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 36px;
+    color: #0a3d62;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    color: #666;
+    letter-spacing: 4px;
+  }
+  .header .team {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #888;
+  }
+  .canvas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .block {
+    background: #fafbfc;
+    border: 1px solid #e8ecf0;
+    border-radius: 8px;
+    padding: 18px 16px;
+    min-height: 160px;
+    transition: all 0.3s;
+  }
+  .block:hover {
+    box-shadow: 0 4px 12px rgba(10, 61, 98, 0.12);
+    border-color: #0a3d62;
+  }
+  .block-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #0a3d62;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #0a3d62;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-title .icon {
+    font-size: 18px;
+  }
+  .block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .block li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #333;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .block li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #0a3d62;
+    font-size: 12px;
+  }
+  .block .sub {
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+    padding-left: 14px;
+  }
+
+  /* 布局位置 */
+  .b1 { grid-column: 1; grid-row: 1 / span 2; background: linear-gradient(135deg, #f0f7ff, #fafbfc); }
+  .b2 { grid-column: 2; grid-row: 1; background: linear-gradient(135deg, #fff5f0, #fafbfc); }
+  .b3 { grid-column: 3; grid-row: 1 / span 2; background: linear-gradient(135deg, #f0fff4, #fafbfc); }
+  .b4 { grid-column: 2; grid-row: 2; background: linear-gradient(135deg, #fffaf0, #fafbfc); }
+  .b5 { grid-column: 1 / span 2; grid-row: 3; background: linear-gradient(135deg, #f5f0ff, #fafbfc); }
+  .b6 { grid-column: 3; grid-row: 3; background: linear-gradient(135deg, #fff0f5, #fafbfc); }
+  .b7 { grid-column: 1; grid-row: 4; background: linear-gradient(135deg, #f0ffff, #fafbfc); }
+  .b8 { grid-column: 2; grid-row: 4; background: linear-gradient(135deg, #f8f0ff, #fafbfc); }
+  .b9 { grid-column: 3; grid-row: 4; background: linear-gradient(135deg, #fffff0, #fafbfc); }
+
+  /* 中间价值主张突出 */
+  .value-prop {
+    background: linear-gradient(135deg, #0a3d62, #1e6091) !important;
+    color: #fff;
+    border: none;
+  }
+  .value-prop .block-title {
+    color: #ffd700;
+    border-bottom-color: #ffd700;
+  }
+  .value-prop li {
+    color: #fff;
+  }
+  .value-prop li::before {
+    color: #ffd700;
+  }
+  .value-prop .sub {
+    color: #b8d4e8;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  @media (max-width: 900px) {
+    .canvas { grid-template-columns: 1fr; }
+    .b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9 {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🚁 低空智联</h1>
+    <div class="subtitle">县域无人机行业应用服务商 · 商业画布</div>
+    <div class="team">创业基础课程作业 | 团队：五人遥感专业团队 | 指导老师：方军</div>
+  </div>
+
+  <div class="canvas">
+    <!-- 第一列：关键合作伙伴 -->
+    <div class="block b1">
+      <div class="block-title"><span class="icon">🤝</span> 关键合作伙伴</div>
+      <ul>
+        <li>大疆行业应用授权服务商</li>
+        <li class="sub">提供设备技术支持与售后保障</li>
+        <li>地方政府（自然资源局、应急管理局、文旅局）</li>
+        <li class="sub">项目采购方与政策背书</li>
+        <li>湖南科技大学测绘遥感学院</li>
+        <li class="sub">技术支持与人才输送</li>
+        <li>县域文旅景区运营方</li>
+        <li class="sub">航拍测绘与数字孪生项目合作</li>
+        <li>本地无人机协会 / 飞手社群</li>
+        <li class="sub">扩大飞手资源池</li>
+      </ul>
+    </div>
+
+    <!-- 第二列上：关键业务 -->
+    <div class="block b2">
+      <div class="block-title"><span class="icon">⚙️</span> 关键业务</div>
+      <ul>
+        <li>无人机航测与三维建模</li>
+        <li>数字孪生景区搭建</li>
+        <li>应急救援航拍支持</li>
+        <li>文旅宣传航拍制作</li>
+        <li>自然资源监测巡检</li>
+        <li>农业植保服务</li>
+      </ul>
+    </div>
+
+    <!-- 第三列：价值主张（中心突出） -->
+    <div class="block b3 value-prop">
+      <div class="block-title"><span class="icon">💎</span> 价值主张</div>
+      <ul>
+        <li><strong>让县域低空经济落地</strong>——</li>
+        <li class="sub">以无人机为载体，为三四线城市及县域提供低成本、高效率的空间数据服务</li>
+        <li><strong>一站式行业解决方案</strong>——</li>
+        <li class="sub">从航测采集→数据处理→成果交付全流程服务，客户只需要对接一个窗口</li>
+        <li><strong>高校技术+本地服务</strong>——</li>
+        <li class="sub">依托高校遥感专业技术能力，价格比一线城市服务商低40%，响应速度更快</li>
+        <li><strong>轻量化数字孪生</strong>——</li>
+        <li class="sub">基于无人机+3DGS技术的低成本景区数字孪生方案，万元级即可落地</li>
+      </ul>
+    </div>
+
+    <!-- 第二列中：关键资源 -->
+    <div class="block b4">
+      <div class="block-title"><span class="icon">📦</span> 关键资源</div>
+      <ul>
+        <li>专业飞手团队（AOPA证）</li>
+        <li>大疆Air 3S / Mavic 3E等航测设备</li>
+        <li>DJI Terra / 3DGS建模能力</li>
+        <li>高校技术背景与品牌背书</li>
+        <li>县域政府人脉资源</li>
+        <li>轻量化数字孪生技术方案</li>
+      </ul>
+    </div>
+
+    <!-- 客户关系（跨2列） -->
+    <div class="block b5">
+      <div class="block-title"><span class="icon">💬</span> 客户关系</div>
+      <ul>
+        <li><strong>政府端</strong>：项目制合作 → 长期运维服务 → 形成标杆案例复制</li>
+        <li class="sub">通过招投标/政采方式进入，以优质交付建立信任，争取年度框架合同</li>
+        <li><strong>企业端</strong>：定制化解决方案 → 持续迭代升级</li>
+        <li class="sub">文旅景区、农业园区、工业厂区等，按项目收费+年度服务费</li>
+        <li><strong>个人端</strong>：航拍服务平台 → 社群运营</li>
+        <li class="sub">婚礼航拍、活动拍摄等小单，通过抖音/小红书获客</li>
+        <li><strong>高校合作</strong>：产学研基地 → 联合培养 → 技术转化</li>
+        <li class="sub">与本校及周边高校建立实习基地，持续输出人才与技术</li>
+      </ul>
+    </div>
+
+    <!-- 渠道通路 -->
+    <div class="block b6">
+      <div class="block-title"><span class="icon">📢</span> 渠道通路</div>
+      <ul>
+        <li>政府招投标平台</li>
+        <li>高校老师引荐</li>
+        <li>大疆行业应用渠道</li>
+        <li>抖音/小红书短视频获客</li>
+        <li>本地商会/企业家协会</li>
+        <li>文旅局/景区推介会</li>
+        <li>老客户转介绍</li>
+      </ul>
+    </div>
+
+    <!-- 客户细分 -->
+    <div class="block b7">
+      <div class="block-title"><span class="icon">👥</span> 客户细分</div>
+      <ul>
+        <li><strong>B端政府</strong>（核心）</li>
+        <li class="sub">自然资源局、应急管理局、文旅局、住建局</li>
+        <li class="sub">需求：测绘、监测、应急、数字城市</li>
+        <li><strong>B端企业</strong>（重点）</li>
+        <li class="sub">文旅景区、农业园区、地产开发商、工厂</li>
+        <li class="sub">需求：三维建模、宣传航拍、巡检</li>
+        <li><strong>C端个人</strong>（补充）</li>
+        <li class="sub">婚礼航拍、活动拍摄、毕业航拍</li>
+        <li class="sub">需求：视频/照片交付，客单价低但量大</li>
+      </ul>
+    </div>
+
+    <!-- 成本结构 -->
+    <div class="block b8">
+      <div class="block-title"><span class="icon">💰</span> 成本结构</div>
+      <ul>
+        <li><strong>硬件成本</strong>（35%）</li>
+        <li class="sub">无人机、相机、电池、配件折旧</li>
+        <li><strong>人力成本</strong>（30%）</li>
+        <li class="sub">飞手、建模师、销售、运营</li>
+        <li><strong>软件成本</strong>（10%）</li>
+        <li class="sub">DJI Terra、建模软件、办公软件</li>
+        <li><strong>运营成本</strong>（15%）</li>
+        <li class="sub">交通差旅、营销推广、场地租金</li>
+        <li><strong>风险成本</strong>（10%）</li>
+        <li class="sub">设备保险、飞行安全、项目返工</li>
+      </ul>
+    </div>
+
+    <!-- 收入来源 -->
+    <div class="block b9">
+      <div class="block-title"><span class="icon">📈</span> 收入来源</div>
+      <ul>
+        <li><strong>航测建模服务</strong>（40%）</li>
+        <li class="sub">按面积计费，0.8-1.5万/平方公里</li>
+        <li><strong>数字孪生项目</strong>（25%）</li>
+        <li class="sub">景区/园区数字孪生，5-20万/项目</li>
+        <li><strong>应急巡检服务</strong>（15%）</li>
+        <li class="sub">按次收费，2000-5000元/次</li>
+        <li><strong>文旅航拍</strong>（10%）</li>
+        <li class="sub">宣传视频制作，5000-2万/条</li>
+        <li><strong>培训与认证</strong>（5%）</li>
+        <li class="sub">飞手培训、AOPA考证辅导</li>
+        <li><strong>设备租赁</strong>（5%）</li>
+        <li class="sub">无人机+飞手日租服务</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    低空智联 · 商业模型画布 | 创业基础课程作业 | 2026年10月
+  </div>
+</div>
+</body>
+</html>
